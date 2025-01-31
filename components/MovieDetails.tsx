@@ -39,7 +39,7 @@ export default function MovieDetails({ movie }: Props) {
                 </div>
             </div>
             <button
-                className="rounded-lg bg-slate-100 px-4 py-2 transition hover:scale-105 hover:bg-slate-200"
+                className="rounded-lg bg-slate-100 px-4 py-2 text-slate-900 transition hover:scale-105 hover:bg-slate-200"
                 onClick={() => setButtonClicked(true)}
             >
                 {!buttonClicked

@@ -41,7 +41,11 @@ export default function GenrePicker({ onGoClick }: Props) {
                 onChange={(e) => setSelectedGenre(e.target.value)}
                 className="rounded-lg px-2 py-1"
             >
-                <option disabled value={"unassigned"} className="rounded-lg">
+                <option
+                    disabled
+                    value={"unassigned"}
+                    className="rounded-lg text-slate-900"
+                >
                     -- select a genre --
                 </option>
                 {genres &&
