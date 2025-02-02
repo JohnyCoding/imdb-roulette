@@ -24,13 +24,13 @@ export default function RootLayout({
             <body
                 className={`${fredoka.className} flex h-screen flex-col antialiased`}
             >
-                <header className="bg-cyan-700 px-12 py-12">
-                    <h1 className="text-2xl font-bold tracking-widest text-slate-100">
+                <header className="bg-cyan-700 px-6 py-6 md:px-12 md:py-12">
+                    <h1 className="text-lg font-bold tracking-widest text-slate-100 md:text-2xl">
                         Movie Roulette | Be Fun At Movie Parties
                     </h1>
                 </header>
                 {children}
-                <footer className="flex flex-row items-center justify-between gap-x-5 bg-cyan-900 px-12 py-6">
+                <footer className="flex flex-row items-center justify-between gap-x-5 bg-cyan-900 px-6 py-6 md:px-12">
                     <Image
                         src={"/TMDB.svg"}
                         alt="TMDB logo"
@@ -38,7 +38,7 @@ export default function RootLayout({
                         height={128}
                         className="h-auto w-40"
                     />
-                    <p className="text-end text-slate-100 sm:text-lg">
+                    <p className="sm:text-md text-end text-sm text-slate-100 md:text-lg">
                         This product uses the TMDB API but is not endorsed or
                         certified by TMDB.
                     </p>

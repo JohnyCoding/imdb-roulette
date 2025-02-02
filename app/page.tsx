@@ -35,7 +35,7 @@ export default function Home() {
 
     return (
         <main className="grow">
-            <div className="flex h-full flex-col items-center justify-center gap-y-12 bg-gradient-to-b from-cyan-700 to-cyan-900 px-12 py-12">
+            <div className="flex h-full flex-col items-center justify-center gap-y-6 bg-gradient-to-b from-cyan-700 to-cyan-900 px-6 md:gap-y-12 md:px-12 md:py-12">
                 {gameState === "genrePick" && (
                     <GenrePicker onGoClick={onGoClick} />
                 )}

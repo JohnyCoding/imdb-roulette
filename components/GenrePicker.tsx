@@ -44,13 +44,17 @@ export default function GenrePicker({ onGoClick }: Props) {
                 <option
                     disabled
                     value={"unassigned"}
-                    className="rounded-lg text-slate-900"
+                    className="text-slate-900"
                 >
                     -- select a genre --
                 </option>
                 {genres &&
                     genres.map((genre) => (
-                        <option key={genre.id} value={genre.id.toString()}>
+                        <option
+                            key={genre.id}
+                            value={genre.id.toString()}
+                            className="text-slate-900"
+                        >
                             {genre.name}
                         </option>
                     ))}

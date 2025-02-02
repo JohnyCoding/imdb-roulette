@@ -62,7 +62,7 @@ export default function RouletteWheel({ onWheelStopSpinning }: Props) {
         }
     };
     return (
-        <div className="flex flex-col items-center justify-center gap-y-12">
+        <div className="flex flex-col items-center justify-center gap-y-6 md:gap-y-12">
             <Wheel
                 mustStartSpinning={mustSpin}
                 prizeNumber={prizeNumber}
