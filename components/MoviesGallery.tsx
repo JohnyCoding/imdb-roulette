@@ -44,7 +44,10 @@ export default function MoviesGallery({ movies, winningMovieIndex }: Props) {
 
     const handleMouseEnter = (e: React.MouseEvent, posterPath: string) => {
         setHovered(true);
-        setPosition({ x: e.clientX + 20, y: e.clientY + 20 });
+        setPosition({
+            x: e.clientX > screen.width / 2 ? e.clientX - 200 : e.clientX + 20,
+            y: e.clientY - 120,
+        });
         setPosterPath(posterPath);
     };
 
@@ -71,7 +74,16 @@ export default function MoviesGallery({ movies, winningMovieIndex }: Props) {
                             key={`${movie.id}${index}`}
                             className="flex basis-[98px] items-center justify-center pl-2"
                         >
-                            <div className="relative flex h-[135px] w-[90px] flex-col items-center justify-center rounded-lg bg-slate-900 text-slate-100">
+                            <div
+                                className="relative flex h-[135px] w-[90px] flex-col items-center justify-center rounded-lg bg-slate-900 text-slate-100"
+                                onMouseEnter={(e) =>
+                                    handleMouseEnter(
+                                        e,
+                                        `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
+                                    )
+                                }
+                                onMouseLeave={handleMouseLeave}
+                            >
                                 <Image
                                     src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                                     alt={`${movie.title} poster`}
@@ -79,13 +91,6 @@ export default function MoviesGallery({ movies, winningMovieIndex }: Props) {
                                     sizes=""
                                     className="hover:after:content rounded-lg"
                                     placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(135, 90))}`}
-                                    onMouseEnter={(e) =>
-                                        handleMouseEnter(
-                                            e,
-                                            `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
-                                        )
-                                    }
-                                    onMouseLeave={handleMouseLeave}
                                 />
                                 <p
                                     className={`z-10 flex h-9 w-9 items-center justify-center rounded-lg border-2 border-slate-700 text-2xl ${index === winningMovieIndex ? "animate-bounce" : ""}`}
@@ -105,10 +110,10 @@ export default function MoviesGallery({ movies, winningMovieIndex }: Props) {
             </Carousel>
             {hovered && (
                 <div
-                    className="pointer-events-none absolute z-50 origin-bottom-left transition-transform"
+                    className="pointer-events-none fixed z-50 origin-top-left"
                     style={{
-                        left: `${position.x}px`,
-                        top: `${position.y}px`,
+                        left: screen.width < 720 ? "45vw" : `${position.x}px`,
+                        top: screen.width < 720 ? "45vh" : `${position.y}px`,
                     }}
                 >
                     <Image

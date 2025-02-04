@@ -22,7 +22,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${fredoka.className} flex h-screen flex-col antialiased`}
+                className={`${fredoka.className} flex h-[100dvh] flex-col antialiased`}
             >
                 <header className="bg-cyan-700 px-6 py-6 md:px-12 md:py-12">
                     <h1 className="text-lg font-bold tracking-widest text-slate-100 md:text-2xl">
@@ -36,9 +36,9 @@ export default function RootLayout({
                         alt="TMDB logo"
                         width={256}
                         height={128}
-                        className="h-auto w-40"
+                        className="h-auto w-20 sm:w-40"
                     />
-                    <p className="sm:text-md text-end text-sm text-slate-100 md:text-lg">
+                    <p className="text-end text-xs text-slate-100 sm:text-lg">
                         This product uses the TMDB API but is not endorsed or
                         certified by TMDB.
                     </p>
